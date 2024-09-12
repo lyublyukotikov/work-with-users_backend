@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6", // Целевая версия JavaScript
+    "module": "commonjs", // Модульная система
+    "outDir": "../dist", // Каталог для скомпилированных файлов (на уровень выше)
+    "rootDir": "./", // Корневой каталог исходных файлов (текущая директория)
+    "strict": true, // Включение строгой проверки типов
+    "esModuleInterop": true, // Разрешение импорта CommonJS
+    "skipLibCheck": true, // Пропуск проверки типов в библиотеках
+    "forceConsistentCasingInFileNames": true, // Поддержка согласованного регистрового написания
+    "typeRoots": [
+      "../node_modules/@types",
+      "./server/types",
+      "./jest.config.js"
+    ], // Путь к типам
+    "baseUrl": "./" // Основной каталог для разрешения модулей
+  },
+  "include": ["**/*.ts"], // Включает файлы с расширением .ts в текущей и вложенных директориях
+  "exclude": ["../node_modules"] // Исключает папку node_modules на уровне выше
+}
