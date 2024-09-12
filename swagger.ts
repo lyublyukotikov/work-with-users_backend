@@ -13,7 +13,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: process.env.SWAGGER_SERVER_URL || 'http://localhost:5000', // Используем переменную окружения или значение по умолчанию
+      url: process.env.SWAGGER_SERVER_URL,
       description: 'Локальный сервер',
     },
   ],
@@ -22,12 +22,12 @@ const swaggerDefinition = {
 const options: swaggerJsdoc.Options = {
   swaggerDefinition,
   apis: [
-    '../src/server/controllers/task-controller.ts',
-    '../src/server/controllers/user-controller.ts',
+    '/app/server/controllers/task-controller.ts', // Обновленный путь
+    '/app/server/controllers/user-controller.ts', // Обновленный путь
   ],
 };
 
 // Генерация спецификации Swagger
 const swaggerSpec = swaggerJsdoc(options);
-
+console.log(JSON.stringify(swaggerSpec, null, 2));
 export default swaggerSpec;

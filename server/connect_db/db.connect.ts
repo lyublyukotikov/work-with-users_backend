@@ -12,6 +12,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL as string, {
   logging: console.log,
 });
 
+// Проверка подключения к базе данных
 sequelize
   .authenticate()
   .then(() => {
