@@ -29,5 +29,5 @@ const options: swaggerJsdoc.Options = {
 
 // Генерация спецификации Swagger
 const swaggerSpec = swaggerJsdoc(options);
-console.log(JSON.stringify(swaggerSpec, null, 2));
+
 export default swaggerSpec;

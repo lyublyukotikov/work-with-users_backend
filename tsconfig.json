@@ -9,7 +9,7 @@
     "skipLibCheck": true, // Пропуск проверки типов в библиотеках
     "forceConsistentCasingInFileNames": true, // Поддержка согласованного регистрового написания
     "typeRoots": [
-      "../node_modules/@types",
+      "./node_modules/@types",
       "./server/types",
       "./jest.config.js"
     ], // Путь к типам
