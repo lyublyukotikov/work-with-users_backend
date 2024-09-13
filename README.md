@@ -20,7 +20,7 @@ git clone <https://github.com/lyublyukotikov/work-with-users_backend.git>
 ### 2.  Установка зависимостей
 pnpm install или npm install
 
-### 3.  Установка зависимостей
+### 3.  Запуск приложения
 Из корневой папки выполните команду для запуска приложения с помощью Docker: 
 docker-compose up --build
 
