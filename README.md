@@ -23,9 +23,12 @@ pnpm install или npm install
 ### 3.  Установка зависимостей
 Из корневой папки выполните команду для запуска приложения с помощью Docker: 
 docker-compose up --build
+
 Дождитесь, пока база данных синхронизируется с ORM Sequelize.
-backend будет доступен по следующим адресам:
+
+
 API: http://localhost:5000/api/
+
 Документация для backend (Swagger): http://localhost:5000/api-docs/
 
 ### 4. Линтинг кода (ESLint)
