@@ -341,117 +341,117 @@ class UserController {
     }
   }
 
-/**
- * @swagger
- * /api/refresh:
- *   get:
- *     summary: Refresh user tokens using refreshToken from cookies
- *     tags: [Users]
- *     security:
- *       - bearerAuth: []  # Если токен используется для защиты
- *     parameters:
- *       - in: cookie
- *         name: refreshToken
- *         required: true
- *         schema:
- *           type: string
- *           example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
- *         description: 'The refresh token in cookies'
- *     responses:
- *       200:
- *         description: Tokens refreshed successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 user:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       example: 19
- *                     email:
- *                       type: string
- *                       example: "userAlex@example.com"
- *                     role:
- *                       type: string
- *                       example: "ADMIN"
- *                 accessToken:
- *                   type: string
- *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
- *                 refreshToken:
- *                   type: string
- *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
- *       400:
- *         description: Invalid request (e.g. missing or invalid refreshToken)
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 400
- *                 message:
- *                   type: string
- *                   example: 'Некорректный запрос'
- *                 errorCode:
- *                   type: string
- *                   example: 'INVALID_REFRESH_TOKEN'
- *       401:
- *         description: Unauthorized (e.g. refreshToken is missing or invalid)
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 401
- *                 message:
- *                   type: string
- *                   example: 'Кука с refreshToken не найдена или токен недействителен'
- *                 errorCode:
- *                   type: string
- *                   example: 'UNAUTHORIZED'
- *       404:
- *         description: User not found (e.g. invalid user data in token)
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 404
- *                 message:
- *                   type: string
- *                   example: 'Пользователь не найден'
- *                 errorCode:
- *                   type: string
- *                   example: 'USER_NOT_FOUND'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 500
- *                 message:
- *                   type: string
- *                   example: 'Внутренняя ошибка сервера'
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2024-09-11T21:13:39.853Z"
- *                 errorCode:
- *                   type: string
- *                   example: 'INTERNAL_SERVER_ERROR'
- */
+  /**
+   * @swagger
+   * /api/refresh:
+   *   get:
+   *     summary: Refresh user tokens using refreshToken from cookies
+   *     tags: [Users]
+   *     security:
+   *       - bearerAuth: []  # Если токен используется для защиты
+   *     parameters:
+   *       - in: cookie
+   *         name: refreshToken
+   *         required: true
+   *         schema:
+   *           type: string
+   *           example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+   *         description: 'The refresh token in cookies'
+   *     responses:
+   *       200:
+   *         description: Tokens refreshed successfully
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 user:
+   *                   type: object
+   *                   properties:
+   *                     id:
+   *                       type: integer
+   *                       example: 19
+   *                     email:
+   *                       type: string
+   *                       example: "userAlex@example.com"
+   *                     role:
+   *                       type: string
+   *                       example: "ADMIN"
+   *                 accessToken:
+   *                   type: string
+   *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+   *                 refreshToken:
+   *                   type: string
+   *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+   *       400:
+   *         description: Invalid request (e.g. missing or invalid refreshToken)
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 400
+   *                 message:
+   *                   type: string
+   *                   example: 'Некорректный запрос'
+   *                 errorCode:
+   *                   type: string
+   *                   example: 'INVALID_REFRESH_TOKEN'
+   *       401:
+   *         description: Unauthorized (e.g. refreshToken is missing or invalid)
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 401
+   *                 message:
+   *                   type: string
+   *                   example: 'Кука с refreshToken не найдена или токен недействителен'
+   *                 errorCode:
+   *                   type: string
+   *                   example: 'UNAUTHORIZED'
+   *       404:
+   *         description: User not found (e.g. invalid user data in token)
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 404
+   *                 message:
+   *                   type: string
+   *                   example: 'Пользователь не найден'
+   *                 errorCode:
+   *                   type: string
+   *                   example: 'USER_NOT_FOUND'
+   *       500:
+   *         description: Internal server error
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 500
+   *                 message:
+   *                   type: string
+   *                   example: 'Внутренняя ошибка сервера'
+   *                 timestamp:
+   *                   type: string
+   *                   format: date-time
+   *                   example: "2024-09-11T21:13:39.853Z"
+   *                 errorCode:
+   *                   type: string
+   *                   example: 'INTERNAL_SERVER_ERROR'
+   */
   async refresh(req: Request, res: Response, next: NextFunction) {
     try {
       const { refreshToken } = req.cookies;
@@ -892,11 +892,11 @@ class UserController {
       }
 
       const users = await UserService.getAllUsers(
-        parseInt(page as string), 
-        parseInt(limit as string), 
+        parseInt(page as string),
+        parseInt(limit as string),
         sort as string,
         roleFilter as UserAttributes['role'],
-        emailFilter as UserAttributes['email'], 
+        emailFilter as UserAttributes['email'],
       );
 
       return res.json(users);

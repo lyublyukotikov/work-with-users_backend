@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "target": "es6", // Целевая версия JavaScript
     "module": "commonjs", // Модульная система
     "outDir": "../dist", // Каталог для скомпилированных файлов (на уровень выше)

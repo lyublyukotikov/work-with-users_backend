@@ -136,202 +136,201 @@ class TaskController {
       next(error);
     }
   }
-/**
- * @swagger
- * /api/tasks/user/{userId}:
- *   get:
- *     summary: Get tasks by user
- *     tags: [Tasks]
- *     security:
- *       - bearerAuth: []
- *     parameters:
- *       - in: path
- *         name: userId
- *         required: true
- *         schema:
- *           type: integer
- *           example: 1
- *         description: 'ID of the user whose tasks are being retrieved'
- *       - in: query
- *         name: page
- *         schema:
- *           type: integer
- *           example: 1
- *         description: 'Page number for pagination'
- *       - in: query
- *         name: limit
- *         schema:
- *           type: integer
- *           example: 10
- *         description: 'Number of tasks per page'
- *       - in: query
- *         name: sort
- *         schema:
- *           type: string
- *           enum: [title, description, createdAt, updatedAt]  # Выпадающий список для сортировки
- *           example: 'createdAt'
- *         description: 'Field to sort tasks by'
- *       - in: query
- *         name: titleFilter
- *         schema:
- *           type: string
- *           example: 'grocery'
- *         description: 'Filter tasks by title'
- *     responses:
- *       200:
- *         description: Tasks retrieved successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 tasks:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: integer
- *                         example: 1
- *                       title:
- *                         type: string
- *                         example: "Buy groceries"
- *                       description:
- *                         type: string
- *                         example: "Buy milk, bread, and eggs."
- *                       userId:
- *                         type: integer
- *                         example: 1
- *                       createdAt:
- *                         type: string
- *                         format: date-time
- *                         example: "2024-09-11T21:48:02.943Z"
- *                       updatedAt:
- *                         type: string
- *                         format: date-time
- *                         example: "2024-09-11T21:48:02.943Z"
- *                 total:
- *                   type: integer
- *                   example: 5
- *                 totalPages:
- *                   type: integer
- *                   example: 1
- *                 currentPage:
- *                   type: integer
- *                   example: 1
- *       400:
- *         description: Invalid request
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 400
- *                 message:
- *                   type: string
- *                   example: 'Некорректный параметр сортировки'
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2024-09-11T21:48:02.943Z"
- *                 errorCode:
- *                   type: string
- *                   example: "INVALID_SORT_FIELD"
- *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 401
- *                 message:
- *                   type: string
- *                   example: 'Необходима авторизация'
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2024-09-11T21:48:02.943Z"
- *                 errorCode:
- *                   type: string
- *                   example: "UNAUTHORIZED"
- *       404:
- *         description: User not found
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 404
- *                 message:
- *                   type: string
- *                   example: 'Некорректный идентификатор пользователя'
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2024-09-11T21:48:02.943Z"
- *                 errorCode:
- *                   type: string
- *                   example: "USER_NOT_FOUND"
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: integer
- *                   example: 500
- *                 message:
- *                   type: string
- *                   example: 'Внутренняя ошибка сервера'
- *                 timestamp:
- *                   type: string
- *                   format: date-time
- *                   example: "2024-09-11T21:55:05.089Z"
- *                 errorCode:
- *                   type: string
- *                   example: "INTERNAL_SERVER_ERROR"
- */
+  /**
+   * @swagger
+   * /api/tasks/user/{userId}:
+   *   get:
+   *     summary: Get tasks by user
+   *     tags: [Tasks]
+   *     security:
+   *       - bearerAuth: []
+   *     parameters:
+   *       - in: path
+   *         name: userId
+   *         required: true
+   *         schema:
+   *           type: integer
+   *           example: 1
+   *         description: 'ID of the user whose tasks are being retrieved'
+   *       - in: query
+   *         name: page
+   *         schema:
+   *           type: integer
+   *           example: 1
+   *         description: 'Page number for pagination'
+   *       - in: query
+   *         name: limit
+   *         schema:
+   *           type: integer
+   *           example: 10
+   *         description: 'Number of tasks per page'
+   *       - in: query
+   *         name: sort
+   *         schema:
+   *           type: string
+   *           enum: [title, description, createdAt, updatedAt]  # Выпадающий список для сортировки
+   *           example: 'createdAt'
+   *         description: 'Field to sort tasks by'
+   *       - in: query
+   *         name: titleFilter
+   *         schema:
+   *           type: string
+   *           example: 'grocery'
+   *         description: 'Filter tasks by title'
+   *     responses:
+   *       200:
+   *         description: Tasks retrieved successfully
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 tasks:
+   *                   type: array
+   *                   items:
+   *                     type: object
+   *                     properties:
+   *                       id:
+   *                         type: integer
+   *                         example: 1
+   *                       title:
+   *                         type: string
+   *                         example: "Buy groceries"
+   *                       description:
+   *                         type: string
+   *                         example: "Buy milk, bread, and eggs."
+   *                       userId:
+   *                         type: integer
+   *                         example: 1
+   *                       createdAt:
+   *                         type: string
+   *                         format: date-time
+   *                         example: "2024-09-11T21:48:02.943Z"
+   *                       updatedAt:
+   *                         type: string
+   *                         format: date-time
+   *                         example: "2024-09-11T21:48:02.943Z"
+   *                 total:
+   *                   type: integer
+   *                   example: 5
+   *                 totalPages:
+   *                   type: integer
+   *                   example: 1
+   *                 currentPage:
+   *                   type: integer
+   *                   example: 1
+   *       400:
+   *         description: Invalid request
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 400
+   *                 message:
+   *                   type: string
+   *                   example: 'Некорректный параметр сортировки'
+   *                 timestamp:
+   *                   type: string
+   *                   format: date-time
+   *                   example: "2024-09-11T21:48:02.943Z"
+   *                 errorCode:
+   *                   type: string
+   *                   example: "INVALID_SORT_FIELD"
+   *       401:
+   *         description: Unauthorized
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 401
+   *                 message:
+   *                   type: string
+   *                   example: 'Необходима авторизация'
+   *                 timestamp:
+   *                   type: string
+   *                   format: date-time
+   *                   example: "2024-09-11T21:48:02.943Z"
+   *                 errorCode:
+   *                   type: string
+   *                   example: "UNAUTHORIZED"
+   *       404:
+   *         description: User not found
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 404
+   *                 message:
+   *                   type: string
+   *                   example: 'Некорректный идентификатор пользователя'
+   *                 timestamp:
+   *                   type: string
+   *                   format: date-time
+   *                   example: "2024-09-11T21:48:02.943Z"
+   *                 errorCode:
+   *                   type: string
+   *                   example: "USER_NOT_FOUND"
+   *       500:
+   *         description: Internal server error
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 status:
+   *                   type: integer
+   *                   example: 500
+   *                 message:
+   *                   type: string
+   *                   example: 'Внутренняя ошибка сервера'
+   *                 timestamp:
+   *                   type: string
+   *                   format: date-time
+   *                   example: "2024-09-11T21:55:05.089Z"
+   *                 errorCode:
+   *                   type: string
+   *                   example: "INTERNAL_SERVER_ERROR"
+   */
   // Получение задач пользователя
   async getTasksByUser(req: Request, res: Response, next: NextFunction) {
     try {
       const { userId } = req.params;
       const numericUserId = Number(userId);
-  
+
       if (isNaN(numericUserId)) {
         throw ApiError.notFound(
           'Некорректный идентификатор пользователя',
           'USER_NOT_FOUND',
         );
       }
-  
+
       const {
         page = 1,
         limit = 10,
         sort = 'createdAt',
         titleFilter = '',
       } = req.query;
-  
+
       // Преобразование параметров в числа
       const numericPage = parseInt(page as string);
       const numericLimit = parseInt(limit as string);
-  
-      
+
       const validSortFields = [
         'title',
-        'description', 
+        'description',
         'createdAt',
         'updatedAt',
       ];
-  
+
       // Проверка корректности поля сортировки
       if (!validSortFields.includes(sort as string)) {
         throw ApiError.badRequest(
@@ -339,7 +338,7 @@ class TaskController {
           'INVALID_SORT_FIELD',
         );
       }
-  
+
       // Передача параметров в сервис
       const tasks = await TaskService.getTasksByUser(
         numericUserId,
@@ -348,7 +347,7 @@ class TaskController {
         sort as string,
         titleFilter as string,
       );
-  
+
       return res.json(tasks);
     } catch (error) {
       next(error);

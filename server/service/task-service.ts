@@ -28,7 +28,6 @@ class TaskService {
   ) {
     const offset = (page - 1) * limit;
 
-
     // Создание объекта для фильтрации
     const whereClause: { userId: number; title?: { [Op.iLike]: string } } = {
       userId,

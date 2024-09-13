@@ -29,11 +29,13 @@ app.use('/api', router);
 // Документация Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(cors({
-  origin: '*', // или укажите конкретные разрешенные домены
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(
+  cors({
+    origin: '*', // или укажите конкретные разрешенные домены
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }),
+);
 
 // Глобальный обработчик ошибок
 app.use(errorHandler);
